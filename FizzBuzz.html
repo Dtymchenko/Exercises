@@ -1,0 +1,31 @@
+<script>
+    function fizzBuzz(num) {
+        let result = [];
+        for (let i = 1; i <= num; i++) {
+            result.push(i);
+        };
+
+        for (let i = 0; i < result.length; i++) {
+            if (result[i] % 3 == 0 && result[i] % 5 != 0) {
+                result[i] = "fizz";
+            }
+
+            if (result[i] % 5 == 0 && result[i] % 3 != 0) {
+                result[i] = "buzz";
+            }
+
+            if (result[i] % 3 == 0 && result[i] % 5 == 0) {
+                result[i] = "fizzBuzz";
+            };
+        };
+        for (let i = 0; i < result.length; i++) {
+            console.log(result[i]);
+            ;
+        };
+        // console.log(result);
+
+    };
+
+    fizzBuzz(30);
+
+</script>
