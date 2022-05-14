@@ -1,0 +1,38 @@
+<script>
+    function order(words) {
+        if (words.length === 0) {
+            return ('');
+        } else {
+            let arr = words.split(' ');
+            let arr1 = [];
+            let result = [];
+
+            for (let i = 0; i < arr.length; i++) {
+                arr1.push(arr[i].replace(/[^\d]/g, ''));
+            };
+
+            arr1 = arr1.sort();
+
+            for (let i = 0; i < arr1.length; i++) {
+                for (let j = 0; j < arr.length; j++) {
+                    if (arr[j].includes(arr1[i])) {
+                        result.push(arr[j]);
+                    };
+
+                };
+            };
+
+            return (result.join(" "));
+            console.log(result.join(" "));
+        }
+    };
+
+    const words1 = "is2 Thi1s T4est 3a"; // "Thi1s is2 3a T4est"
+    const words2 = "4of Fo1r pe6ople g3ood th5e the2"; // "Fo1r the2 g3ood 4of th5e pe6ople"
+    const words3 = ""; // ""
+
+    (order(words1));
+    (order(words2));
+    (order(words3));
+
+</script>
