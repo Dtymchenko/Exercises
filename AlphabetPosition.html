@@ -1,0 +1,18 @@
+<script>
+    function alphabetPosition(text) {
+
+        text = text.toLowerCase().replace(/[^a-z]/g, '').split('');
+        for (let i = 0; i < text.length; i++) {
+            text[i] = text[i].charCodeAt() - 96;
+
+        };
+
+        console.log(text.join(' '));
+
+
+    }
+
+    alphabetPosition('a'); // 1
+    alphabetPosition('abc12'); // 1 2 3
+
+</script>
