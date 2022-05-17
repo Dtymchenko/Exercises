@@ -1,0 +1,33 @@
+<script>
+    function validBraces(braces) {
+        braces = braces.replace(/[^\(,\),\[,\],\{,\}]/g, '');
+
+        let stack = [];
+
+        for (let i = 0; i < braces.length; i++) {
+            const current = braces[i];
+            if (current === '(' || current === '{' || current === '[') {
+                stack.push(current);
+            } else if (current === ')' && stack[stack.length - 1] === '(') {
+                stack.pop();
+            } else if (current === '}' && stack[stack.length - 1] === '{') {
+                stack.pop();
+            } else if (current === ']' && stack[stack.length - 1] === '[') {
+                stack.pop();
+            } else {
+                stack.push(current);
+            }
+        }
+        console.log(stack.length === 0);
+    }
+
+
+    validBraces("(a))") //false
+    validBraces("()") //true
+    validBraces("[]") //true
+    validBraces("{}") //true
+    validBraces("(aa34)") //true
+    validBraces("(){}[]") //true
+    validBraces("({})[]") //true
+
+</script>
