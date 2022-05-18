@@ -1,0 +1,36 @@
+<script>
+    function findOdd(A) {
+        if (A.length === 1) {
+            console.log(A);
+        } else {
+            let map = new Map();
+            let res = [];
+            for (let i = 0; i < A.length; i++) {
+                let current = A[i];
+                if (map.has(current)) {
+                    map.set(current, map.get(current) + 1);
+                } else {
+                    map.set(current, 1);
+                }
+            };
+
+            let unique = [...new Set(A)];
+
+            for (let i = 0; i < unique.length; i++) {
+                if (map.get(unique[i]) % 2 != 0) {
+                    res.push(unique[i]);
+                };
+            };
+
+            console.log(res);
+        }
+
+
+
+    }
+
+    findOdd([7]);
+    findOdd([1, 1, 2, 2, 2]);
+    findOdd([0, 1, 0, 1, 0]);
+
+</script>
