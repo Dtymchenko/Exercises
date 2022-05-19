@@ -1,0 +1,19 @@
+<script>
+    function solution(string) {
+        string = string.split('');
+
+        for (let i = 0; i < string.length; i++) {
+            if (string[i].charCodeAt() <= 90 && string[i].charCodeAt() >= 65) {
+                let pos = i;
+                string.splice(pos, 0, ' ');
+                i++;
+            };
+        };
+        console.log(string.join(''));
+    }
+    solution('camelCasing');
+    solution('identifier');
+    solution('');
+    solution('seemSaySay');
+
+</script>
