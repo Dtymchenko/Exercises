@@ -1,0 +1,29 @@
+<script>
+    function zeros(n) {
+        let temp = 5;
+        let result = 0;
+        for (let i = 1; Math.pow(temp, i) <= n; i++) {
+            result += Math.floor(n / Math.pow(temp, i));
+        };
+        return result;
+    }
+
+
+    // 5!  = 1 0
+    // 10! = 2 00
+    // 15! = 3 000
+    // 20! = 4 0000
+    // 25! = 6 000000
+    // 30! = 7 0000000
+    // 35! = 8 00000000
+    // 40! = 9 000000000
+    // 45! = 10 0000000000
+    // 50! = 12 000000000000
+
+    console.log(zeros(0));
+    console.log(zeros(5));
+    console.log(zeros(6));
+    console.log(zeros(30));
+    console.log(zeros(32));
+    console.log(zeros(1000)); // 249
+</script>
