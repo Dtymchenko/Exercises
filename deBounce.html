@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeBounce Function Test</title>
+</head>
+<body>
+    <div class="wrapper"> 
+        <div class="main__block">
+            <h1>My DeBounce Function!</h1>
+            <div class="main__block__text">
+                Check console to make sure it works correctly!
+            </div>
+            <input class="input" type="text">
+        </div>
+    </div>
+    <style>
+        h1 {
+            margin-bottom: 50px;
+        }
+        .input {
+            border-radius: 5px;
+            height: 25px;
+            margin: 20px;
+        }
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            background-color: aqua;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main__block {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main__block__text {
+            text-align: center;
+        }
+
+    </style>
+    <script>
+        const deBounce = (func, ms) => {
+            let timeout;
+            return function() {
+                const funcCall = () => {
+                    func.apply(this, arguments)
+                }
+                clearTimeout(timeout)
+                timeout = setTimeout(funcCall, ms)
+                
+            }
+        }
+
+        function onChange(e) {
+            console.log(e.target.value)
+        }
+
+        const onChangeDeBounced = deBounce(onChange, 200)
+
+        const input = document.querySelector('.input')
+        input.addEventListener("keyup", onChangeDeBounced)
+    </script>
+</body>
+</html>
